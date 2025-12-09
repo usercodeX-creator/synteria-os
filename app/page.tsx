@@ -1,4 +1,5 @@
 // app/page.tsx
+import Link from "next/link";
 
 type LayerCard = {
   id: string;
@@ -208,13 +209,27 @@ export default function Home() {
                           </p>
                         </div>
 
+                        {/* Launch ボタン & ステータス */}
                         <div className="mt-3 flex items-center justify-between text-[10px]">
                           <span className="text-slate-300/90">
                             状態：{layer.status}
                           </span>
-                          <button className="rounded-full border border-white/20 bg-white/15 px-3 py-1 text-[10px] text-slate-50 backdrop-blur group-hover:border-indigo-400 group-hover:bg-indigo-500/35">
-                            Launch（準備中）
-                          </button>
+
+                          {layer.id === "chat" ? (
+                            <Link
+                              href="/chat"
+                              className="rounded-full border border-indigo-400/60 bg-indigo-500/40 px-3 py-1 text-[10px] text-slate-50 backdrop-blur hover:bg-indigo-500/60 hover:border-indigo-300"
+                            >
+                              Launch（Chat）
+                            </Link>
+                          ) : (
+                            <button
+                              className="rounded-full border border-white/20 bg-white/15 px-3 py-1 text-[10px] text-slate-50 backdrop-blur cursor-not-allowed"
+                              disabled
+                            >
+                              Launch（準備中）
+                            </button>
+                          )}
                         </div>
                       </article>
                     ))}
@@ -274,3 +289,4 @@ export default function Home() {
     </div>
   );
 }
+
