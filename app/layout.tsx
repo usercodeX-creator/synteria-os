@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Synteria OS – 深圳経済特区レイヤー",
+    default: "深圳経済特区最強",
     template: "%s | Synteria OS",
   },
   description:
